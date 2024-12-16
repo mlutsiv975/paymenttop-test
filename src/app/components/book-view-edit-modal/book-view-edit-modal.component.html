@@ -1,0 +1,16 @@
+<mat-card style="min-width: 500px;">
+  <mat-card-title>{{ isEditMode ? 'Edit Book' : data.title }}</mat-card-title>
+  <mat-card-content>
+    <app-book-form
+      [book]="data"
+      [readonly]="!isEditMode"
+      [submitLabel]="'Save'"
+      (save)="saveBook($event)"
+      (close)="cancelEdit()"
+    ></app-book-form>
+  </mat-card-content>
+  <mat-card-actions *ngIf="!isEditMode" align="end">
+    <button mat-raised-button color="primary" (click)="switchToEdit()">Edit</button>
+    <button mat-raised-button color="warn" (click)="deleteBook()">Delete</button>
+  </mat-card-actions>
+</mat-card>

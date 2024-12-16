@@ -1,0 +1,13 @@
+
+
+
+<mat-card style="min-width: 500px;">
+  <h2>Add New Book</h2>
+  <mat-card-content>
+    <app-book-form
+      [submitLabel]="'Add'"
+      (save)="addBook($event)"
+      (close)="closeModal()"
+    ></app-book-form>
+  </mat-card-content>
+</mat-card>

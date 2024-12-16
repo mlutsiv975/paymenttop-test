@@ -1,0 +1,22 @@
+<form [formGroup]="form" (ngSubmit)="handleSubmit()">
+  <mat-form-field>
+    <mat-label>Title</mat-label>
+    <input matInput formControlName="title" [readonly]="readonly" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Author</mat-label>
+    <input matInput formControlName="author" [readonly]="readonly" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Year</mat-label>
+    <input matInput type="number" formControlName="year" [readonly]="readonly" />
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Description</mat-label>
+    <textarea matInput formControlName="description" [readonly]="readonly"></textarea>
+  </mat-form-field>
+  <div class="actions" *ngIf="!readonly">
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">{{ submitLabel }}</button>
+    <button mat-raised-button type="button" (click)="close.emit()">Cancel</button>
+  </div>
+</form>
